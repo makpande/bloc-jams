@@ -135,8 +135,14 @@ window.onload = function() {
 songListContainer.addEventListener('mouseover', function(event) {
     if (event.target.parentElement.className === 'album-view-song-item') {
         event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+        
+        var songItem = getSongItem(event.target);
+        var songItemNumber = songItem.getAttribute('data-song-number');
+        if (songItemNumber === currentlyPlayingSong) {
+            songItem.innerHTML = pauseButtonTemplate;
+         } 
 
-    }
+    } 
 });
     
 for (var i = 0; i < songRows.length; i++) {
@@ -145,7 +151,7 @@ for (var i = 0; i < songRows.length; i++) {
         var songItemNumber = songItem.getAttribute('data-song-number');
         if (songItemNumber !== currentlyPlayingSong) {
             songItem.innerHTML = songItemNumber;
-         }
+         } 
 
     });
         
