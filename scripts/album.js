@@ -205,20 +205,20 @@ var previousSong = function() {
     
 };
 
-    var togglePlayFromPlayerBar = function() {
-        var songNumberCell = $(this).find('.song-item-number');
-        
-            if  (currentSoundFile && currentSoundFile.isPaused()) {
-                songNumberCell.html(pauseButtonTemplate);
-                $mainBarSelector.html(playerBarPauseButton);
-                currentSoundFile.play();
-            } else if (currentSoundFile) {
-                songNumberCell.html(playButtonTemplate);   
-                $mainBarSelector.html(playerBarPlayButton);  
-                currentSoundFile.pause();  
-            }
-        
-    };
+var togglePlayFromPlayerBar = function() {
+    var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+
+    if  (currentSoundFile && currentSoundFile.isPaused()) {
+        songNumberCell.html(pauseButtonTemplate);
+        $(this).html(playerBarPauseButton);
+        currentSoundFile.play();
+    } else if (currentSoundFile) {
+        songNumberCell.html(playButtonTemplate);   
+        $(this).html(playerBarPlayButton);  
+        currentSoundFile.pause();  
+    }
+
+};
     
 
 $(document).ready(function() {
