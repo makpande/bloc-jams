@@ -313,7 +313,7 @@ var previousSong = function() {
 };
 
 var togglePlayFromPlayerBar = function() {
-    var songNumberCell = $(this).find('.song-item-number');
+    var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
 
         if  (currentSoundFile && currentSoundFile.isPaused()) {
             songNumberCell.html(pauseButtonTemplate);
